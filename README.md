@@ -11,6 +11,14 @@
 
 - account
   - create account --> web3.eth.accounts.create()
-  
+
+
+- contract
+  - introduce abi --> use abi of election contract
+  - introduce contract address
+  - introduce erc20 token
+  - get OMG abi
+  - 
+
 
 
