@@ -14,7 +14,7 @@ Ethereum Dapp and Web3js Library
 - account
   - create account --> web3.eth.accounts.create()
 
-- contract
+- smart contract
   - introduce abi --> use abi of election contract
   - introduce contract address
   - introduce erc20 token
@@ -32,5 +32,14 @@ Ethereum Dapp and Web3js Library
 - transaction : call smart contract function
   - call vote function
 
+- event
+  - explain event
+  - blockchain visualizer http://ethviewer.live/
+
+- block
+  - 
+
+- utility
+  - 
 
 
