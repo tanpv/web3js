@@ -1,5 +1,8 @@
 Ethereum Dapp and Web3js Library
 
+- very good example code
+  https://github.com/ThatOtherZach/Web3-by-Example
+
 - role of web3js in big picture
   - https://cdn-images-1.medium.com/max/440/1*T_YAqogYLteDZ_h6XSp0zg.png
 
@@ -33,13 +36,20 @@ Ethereum Dapp and Web3js Library
   - call vote function
 
 - event
-  - explain event
+  - view event
+  - sub event from blockchain
+  - sub event from smartcontract
   - blockchain visualizer http://ethviewer.live/
 
 - block
-  - 
+  - block number of last block
+  - transaction inside block
 
 - utility
-  - 
+  - get gas price
+
+- example code use react
+  - https://itnext.io/build-a-simple-ethereum-interplanetary-file-system-ipfs-react-js-dapp-23ff4914ce4e
+  
 
 
