@@ -14,12 +14,29 @@ const Web3 = require('web3')
 // not yet work with local geth
 // var web3 = new Web3('ws://127.0.0.1:8546');
 // using connection from infura
-var web3 = new Web3('wss://mainnet.infura.io/_ws');
+var web3 = new Web3('wss://mainnet.infura.io/ws');
 
-// let subscription = web3.eth.subscribe('pendingTransactions', function (error, result) {})
-//                   .on("data", function (transactionHash) {
-//                       console.log(transactionHash)
-//                   })
+// subcribe and filter transaction
+web3.eth.subscribe('pendingTransactions', function(error, txHash){
+  if (!error) {
+    web3.eth.getTransaction(txHash, function(error, tx) {
+      if (!error) {
+        if(tx!=null){
+          // filter transaction with value >= 1eth
+          if(tx.value >= 1000000000000000000)
+            console.log(tx.value);
+        }
+      }
+      else
+        console.log(error);
+      });
+  }
+  else
+    console.log(error);
+});
+
+// txHash = '0xda5c909a91a755841946d3360166df1ca53f0706129d4f1978f06a0e21b231b5'
+// web3Http.eth.getTransaction(txHash).then(console.log)
 
 // let subscription = web3.eth.subscribe('newBlockHeaders', function (error, result) {})
 // .on("data", function (blockHeader) {
@@ -27,10 +44,10 @@ var web3 = new Web3('wss://mainnet.infura.io/_ws');
 // })
 
 
-var subscription = web3.eth.subscribe('logs', {}, function(error, result){})
-.on("data", function(log){
-  console.log(log);
-})
+// var subscription = web3.eth.subscribe('logs', {}, function(error, result){})
+// .on("data", function(log){
+//   console.log(log);
+// })
 
 // output example
 // { address: '0x949bd9E6031A3d43623FEc3f85e9adbf8A6d9F7A',  topics:

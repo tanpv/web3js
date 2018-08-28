@@ -9,6 +9,7 @@ var Web3 = require('web3');
 // let url = "http://127.0.0.1:7545"
 
 // need to use local geth client hosted
+// geth node need to be synced before could use for deploy
 let url = "http://127.0.0.1:8545"
 
 // use personal to unlock the account first
