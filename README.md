@@ -1,6 +1,6 @@
 web3js
 
-- choose ethereum network
+- network
   - local blockchain with ganache
   - local hosted with geth client
   - remote hosted with infura
@@ -8,14 +8,16 @@ web3js
 - account
   - create new account
   - get account balance
+      - try with local blockchain
+      - try with mainnet
   - wallet
 
-- interact with block chain
+- block chain
   - block inspection
   - subscribe block headers
   - subscribe pending transactions
 
-- interact with smart contract
+- contract
   - call method
   - create contract
   - deploy contract
