@@ -9,6 +9,7 @@ aution_created = "AuctionCreated(uint256,uint256,uint256,uint256)"
 aution_success = "AuctionSuccessful(uint256,uint256,address)"
 aution_cancel = "AuctionCancelled(uint256)"
 pregnant = "Pregnant(address,uint256,uint256,uint256)"
+
 console.log(web3.utils.sha3(transfer_event))
 console.log(web3.utils.sha3(approval_event))
 console.log(web3.utils.sha3(birth_event))
