@@ -1,5 +1,4 @@
 // choose network to interact with
-
 var Web3 = require('web3');
 
 // mainnet, test net use infura
