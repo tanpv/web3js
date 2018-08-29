@@ -1,66 +1,58 @@
 /**
- * subcribe
- *  - pending transactions
- *  - new block headers
- *  - syncing
- *  - logs
- *  - clear sub
- * 
- *  https://forum.ethereum.org/discussion/16377/web3-subscribe-topics
+ * subcribe logs
+ *  - show all logs (event) happen on entire blockchain
+ *  - 
  *  
  */
 const Web3 = require('web3')
 
-// not yet work with local geth
-// var web3 = new Web3('ws://127.0.0.1:8546');
-// using connection from infura
 var web3 = new Web3('wss://mainnet.infura.io/ws');
 
-// subcribe and filter transaction
-web3.eth.subscribe('pendingTransactions', function(error, txHash){
-  if (!error) {
-    web3.eth.getTransaction(txHash, function(error, tx) {
-      if (!error) {
-        if(tx!=null){
-          // filter transaction with value >= 1eth
-          if(tx.value >= 1000000000000000000)
-            console.log(tx.value);
-        }
-      }
-      else
-        console.log(error);
-      });
-  }
-  else
-    console.log(error);
+// see all log on entire ethereum
+// var subscription = web3.eth.subscribe('logs', {}, function(error, log){
+//   if (!error)
+//       console.log(log);
+// });
+
+// filter log related to cryptokitties
+// var subscription = web3.eth.subscribe('logs', {
+//   address: '0x06012c8cf97BEaD5deAe237070F9587f8E7A266d',
+// }, function(error, log){
+//   if (!error)
+//       console.log(log);
+// });
+
+// filter event of pregnant on cryptokitties
+// topic mean event
+var subscription = web3.eth.subscribe('logs', {
+  address: '0x06012c8cf97BEaD5deAe237070F9587f8E7A266d',
+  topics: ['0x241ea03ca20251805084d27d4440371c34a0b85ff108f6bb5611248f73818b80'],
+  fromBlock: 'latest'
+}, function(error, log){
+  if (!error)
+      console.log(log);
 });
 
-// txHash = '0xda5c909a91a755841946d3360166df1ca53f0706129d4f1978f06a0e21b231b5'
-// web3Http.eth.getTransaction(txHash).then(console.log)
 
-// let subscription = web3.eth.subscribe('newBlockHeaders', function (error, result) {})
-// .on("data", function (blockHeader) {
-//     console.log(blockHeader)
-// })
-
-
-// var subscription = web3.eth.subscribe('logs', {}, function(error, result){})
-// .on("data", function(log){
-//   console.log(log);
-// })
-
-// output example
-// { address: '0x949bd9E6031A3d43623FEc3f85e9adbf8A6d9F7A',  topics:
-//    [ '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
-//      '0x00000000000000000000000036496bd9c8641eeb02a213f39e9cda7a17866bf4',
-//      '0x0000000000000000000000009eb0b1230d1de12a8b46f4162856a8838e2a1cba' ],
-//   data: '0x000000000000000000000000000000000000000000000000be1b4f87f88773b9',
-//   blockNumber: 6216268,
-//   transactionHash: '0x73c90ccc86fed6847ee38f039ed3cae73e529e5ab84731dddcc5469261cd28c3',
-//   transactionIndex: 56,
-//   blockHash: '0x3fed4a89079db616af1d958520ed254c03dc5e729d61838d37f58fb411add3a6',  logIndex: 99,
-//   removed: false,
-//   id: 'log_22c1bbff' }
-
-
-
+// example topic from cryptokitties game
+// transfer_event = "Transfer(address,address,uint256)"
+// approval_event = "Approval(address,address,uint256)"
+// birth_event = "Birth(address,uint256,uint256,uint256,uint256)"
+// aution_created = "AuctionCreated(uint256,uint256,uint256,uint256)"
+// aution_success = "AuctionSuccessful(uint256,uint256,address)"
+// aution_cancel = "AuctionCancelled(uint256)"
+// pregnant = "Pregnant(address,uint256,uint256,uint256)"
+// console.log(web3.utils.sha3(transfer_event))
+// console.log(web3.utils.sha3(approval_event))
+// console.log(web3.utils.sha3(birth_event))
+// console.log(web3.utils.sha3(aution_created))
+// console.log(web3.utils.sha3(aution_success))
+// console.log(web3.utils.sha3(aution_cancel))
+// console.log(web3.utils.sha3(pregnant))
+// 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef
+// 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925
+// 0x0a5311bd2a6608f08a180df2ee7c5946819a649b204b554bb8e39825b2c50ad5
+// 0xa9c8dfcda5664a5a124c713e386da27de87432d5b668e79458501eb296389ba7
+// 0x4fcc30d90a842164dd58501ab874a101a3749c3d4747139cefe7c876f4ccebd2
+// 0x2809c7e17bf978fbc7194c0a694b638c4215e9140cacc6c38ca36010b45697df
+// 0x241ea03ca20251805084d27d4440371c34a0b85ff108f6bb5611248f73818b80
