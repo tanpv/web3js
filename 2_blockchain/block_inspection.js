@@ -4,7 +4,7 @@ const web3 = new Web3('https://mainnet.infura.io/v3/abbe691d210c470bbb9e2956e2f8
 // get current block
 // web3.eth.getBlockNumber().then(console.log)
 
-// get block infor
+// get infor for specific block
 // web3.eth.getBlock('latest').then((block) => {
 //   console.log({
 //     blockHash: block.hash,
@@ -33,9 +33,9 @@ const web3 = new Web3('https://mainnet.infura.io/v3/abbe691d210c470bbb9e2956e2f8
 //   }
 // })
 
-let hash = '0x2df24348c3589dd7ef4d2a41de5ab0c315ad8f645c3edeb764ed124f6765da1d'
-web3.eth.getBlock('latest').then(console.log)
-web3.eth.getTransactionFromBlock(hash, 2).then(console.log)
+// let hash = '0x2df24348c3589dd7ef4d2a41de5ab0c315ad8f645c3edeb764ed124f6765da1d'
+// web3.eth.getBlock('latest').then(console.log)
+// web3.eth.getTransactionFromBlock(hash, 2).then(console.log)
 
 
 
