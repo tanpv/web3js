@@ -1,7 +1,14 @@
 web3js
 
+- installation
+  - web3js snippets
+
+- the big picture
+  - web3 interacting with etherium network by contract api call or subscrite events
+
+
 - network
-  - local blockchain with ganache
+  - create_web3_object
   - local hosted with geth client
   - remote hosted with infura
 

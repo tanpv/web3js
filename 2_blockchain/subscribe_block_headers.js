@@ -1,17 +1,12 @@
-/**
- * subcribe 
- *  - new block headers
- */
-
 const Web3 = require('web3')
-var web3 = new Web3('wss://mainnet.infura.io/ws');
+let ws = 'wss://mainnet.infura.io/ws'
+var web3 = new Web3(ws);
 
-// print new block number
-var subscription = web3.eth.subscribe('newBlockHeaders', function(error, block){
-  if (!error) {
-      console.log(Date.now())
-      console.log(block.number);
-      return;
+web3.eth.subscribe('newBlockHeaders', (error, blockheader) => {
+  if(!error){
+    console.log(blockheader)
+  }else{
+    console.log(error)
   }
-  console.error(error);
 })
+
