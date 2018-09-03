@@ -35,8 +35,3 @@ web3js
   - transaction deploy contract
   - transaction send ether
   - transaction write to smart contract
-
-- utilities
-  - working with hash
-  - working with hex
-  - working with unit
